@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<trees>
+  <tree id="1">
+    <kind>白桦</kind>
+    <altitude>22m</altitude>
+    <age>13years</age>
+    <diameter>0.7m</diameter>
+    <area>山坡
+      <!--东侧-->
+    </area>
+  </tree>
+  <tree id="2">
+    <kind>白桦</kind>
+    <altitude>22m</altitude>
+    <age>13years</age>
+    <diameter>0.7m</diameter>
+    <area>山坡
+      <!--东侧-->
+    </area>
+  </tree>
+</trees>

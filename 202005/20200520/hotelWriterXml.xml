@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hotels>
+  <hotel hotelName="格林豪泰苏州火车站南广场拙政园商务酒店">
+    <address>江苏省苏州市姑苏区人民路2156号</address>
+    <types>
+      <type typesName="大床房   ">
+        <prices>189</prices>
+        <vipPrice>161</vipPrice>
+        <coupon>20</coupon>
+      </type>
+      <type typesName="标间">
+        <prices>169</prices>
+        <vipPrice>149</vipPrice>
+        <coupon>10</coupon>
+      </type>
+      <type typesName="豪华双床房">
+        <prices>209</prices>
+        <vipPrice>190</vipPrice>
+        <coupon>30</coupon>
+      </type>
+    </types>
+  </hotel>
+  <hotel hotelName="格雅苏州工业园区金鸡湖东方之门酒店">
+    <address>江苏省苏州工业园区星海街169号</address>
+    <types>
+      <type typesName="豪华双床房">
+        <prices>399</prices>
+        <vipPrice>339</vipPrice>
+        <coupon>20</coupon>
+      </type>
+    </types>
+  </hotel>
+  <hotel hotelName="格林豪泰苏州漕湖工业园智选酒店">
+    <address>江苏省苏州市相城区黄畦路3号</address>
+    <types>
+      <type typesName="高级大床房">
+        <prices>189</prices>
+        <vipPrice>161</vipPrice>
+        <coupon>10</coupon>
+      </type>
+    </types>
+  </hotel>
+</hotels>

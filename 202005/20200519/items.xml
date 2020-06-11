@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 内部的DTD -->
+<!DOCTYPE items[
+	<!ELEMENT items (item+)>
+	<!ATTLIST item id CDATA #REQUIRED>
+	<!ELEMENT item (shopName,price,num,address)>
+	<!ELEMENT shopName (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT num (#PCDATA)>
+	<!ELEMENT address (#PCDATA)>
+]>
+<items>
+	<item id="1">
+		<shopName>笔记本</shopName>
+		<price>5.0</price>
+		<num>20</num>
+		<address>#7-3024</address>
+	</item>
+	<item id="2">
+		<shopName>钢笔</shopName>
+		<price>22.0</price>
+		<num>8</num>
+		<address>#7-2012</address>
+		
+	</item>
+</items>

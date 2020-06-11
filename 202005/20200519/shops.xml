@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE items SYSTEM "\shops.dtd">
+<items>
+	<item id="1">
+		<shopName>笔记本</shopName>
+		<price>5.0</price>
+		<num>20</num>
+		<address>#7-3024</address>
+	</item>
+	<item id="2">
+		<shopName>钢笔</shopName>
+		<price>22.0</price>
+		<num>8</num>
+		<address>#7-2012</address>
+	</item>
+	<item id="3">
+		<shopName>玩具车</shopName>
+		<price>99.0</price>
+		<num>6</num>
+		<address>#8-2002</address>
+	</item>
+	<item id="4">
+		<shopName>荔枝</shopName>
+		<price>9.9/500g</price>
+		<num>80kg</num>
+		<address>#13-0607</address>
+	</item>
+	
+</items>

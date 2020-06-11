@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<!--hospitals  -->
+	<!ELEMENT hospitals (hospital+)>
+	<!ATTLIST hospital name CDATA #REQUIRED>
+	<!ELEMENT hospital (department+)>
+	<!ATTLIST department name CDATA #REQUIRED>
+	<!ELEMENT department (area,level,doctors,patients)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT area (#PCDATA)>
+	<!ELEMENT level (#PCDATA)>
+	<!ELEMENT doctors (directors,doctor,nurses)>
+	<!ELEMENT directors (#PCDATA)>
+	<!ELEMENT doctor (#PCDATA)>
+	<!ELEMENT nurses (#PCDATA)>
+	<!ELEMENT patients (ongoing,await)>
+	<!ELEMENT ongoing (#PCDATA)>
+	<!ELEMENT await (#PCDATA)>

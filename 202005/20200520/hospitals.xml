@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hospitals SYSTEM "hospitals.dtd">
+
+<hospitals>
+	<hospital name="九龙医院">
+		<department name="内科">
+			<area>二楼东</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>6</doctor>
+				<nurses>4</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>12</await>
+			</patients>
+		</department>
+		<department name="外科">
+			<area>二楼西</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>5</doctor>
+				<nurses>6</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>1</await>
+			</patients>
+		</department>
+		<department name="营养科">
+			<area>三楼东</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>5</nurses>
+			</doctors>
+			<patients>
+				<ongoing>4</ongoing>
+				<await>0</await>
+			</patients>
+		</department>
+		<department name="儿科">
+			<area>三楼西</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>3</nurses>
+			</doctors>
+			<patients>
+				<ongoing>6</ongoing>
+				<await>13</await>
+			</patients>
+		</department>
+		<department name="骨科">
+			<area>四楼西</area>
+			<level>三级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>7</doctor>
+				<nurses>9</nurses>
+			</doctors>
+			<patients>
+				<ongoing>5</ongoing>
+				<await>9</await>
+			</patients>
+		</department>
+	</hospital>
+	<hospital name="三甲医院">
+		<department name="内科">
+			<area>二楼东</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>6</doctor>
+				<nurses>4</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>12</await>
+			</patients>
+		</department>
+		<department name="外科">
+			<area>二楼西</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>5</doctor>
+				<nurses>6</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>1</await>
+			</patients>
+		</department>
+		<department name="营养科">
+			<area>三楼东</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>5</nurses>
+			</doctors>
+			<patients>
+				<ongoing>4</ongoing>
+				<await>0</await>
+			</patients>
+		</department>
+		<department name="儿科">
+			<area>三楼西</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>3</nurses>
+			</doctors>
+			<patients>
+				<ongoing>6</ongoing>
+				<await>13</await>
+			</patients>
+		</department>
+	</hospital>
+	<hospital name="协和医院">
+		<department name="内科">
+			<area>二楼东</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>6</doctor>
+				<nurses>4</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>12</await>
+			</patients>
+		</department>
+		<department name="外科">
+			<area>二楼西</area>
+			<level>三级</level>
+			<doctors>
+				<directors>2</directors>
+				<doctor>5</doctor>
+				<nurses>6</nurses>
+			</doctors>
+			<patients>
+				<ongoing>3</ongoing>
+				<await>1</await>
+			</patients>
+		</department>
+		<department name="营养科">
+			<area>三楼东</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>5</nurses>
+			</doctors>
+			<patients>
+				<ongoing>4</ongoing>
+				<await>0</await>
+			</patients>
+		</department>
+		<department name="儿科">
+			<area>三楼西</area>
+			<level>二级</level>
+			<doctors>
+				<directors>3</directors>
+				<doctor>6</doctor>
+				<nurses>3</nurses>
+			</doctors>
+			<patients>
+				<ongoing>6</ongoing>
+				<await>13</await>
+			</patients>
+		</department>
+	</hospital>
+</hospitals>
+
+	

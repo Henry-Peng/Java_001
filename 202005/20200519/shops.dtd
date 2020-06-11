@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 外部的DTD -->
+	<!ELEMENT items (item+)>
+	<!ATTLIST item id CDATA #REQUIRED>
+	<!ELEMENT item (shopName,price,num,address)>
+	<!ELEMENT shopName (#PCDATA)>
+	<!ELEMENT price (#PCDATA)>
+	<!ELEMENT num (#PCDATA)>
+	<!ELEMENT address (#PCDATA)>
