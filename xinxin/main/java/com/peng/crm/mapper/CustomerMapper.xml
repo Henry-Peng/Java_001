@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.peng.crm.mapper.CustomerMapper" >
+ 
+  <sql id="Base_Column_List" >
+    cust_id, 
+    cust_name, 
+    cust_user_id,
+    cust_create_id,
+    (select b.dict_item_name FROM base_dict b where c.cust_source = b.dict_id) cust_source,
+    (select b.dict_item_name FROM base_dict b where c.cust_industry = b.dict_id) cust_industry,
+    (select b.dict_item_name FROM base_dict b where c.cust_level = b.dict_id) cust_level, 
+    cust_linkman,
+     cust_phone, 
+     cust_mobile,
+     cust_zipcode,
+     cust_address,
+     cust_createtime
+  </sql>
+  <sql id="customer_where">
+  	<where>
+  		<if test="custName != null and custName != ''">
+  			and cust_name LIKE '%${custName}%'
+  		</if>
+  		<if test="custSource != null and custSource != ''">
+  			and cust_source = #{custSource}
+  		</if>
+  		<if test="custIndustry != null and custIndustry != ''">
+  			and cust_industry = #{custIndustry}
+  		</if>
+  		<if test="custLevel != null and custLevel != ''">
+  			and cust_level = #{custLevel}
+  		</if>
+  	</where>
+  </sql>
+  
+  <select id="findCustomerList" resultType="customer" parameterType="queryVo">
+  select 
+  	<include refid="Base_Column_List"/>
+  	from customer c 
+  	<include refid="customer_where"/>
+  	LIMIT #{start},#{rows}
+  </select>
+  
+  <select id="getCountByQueryVo"  parameterType="queryVo" resultType="int">
+  select count(1)
+  	FROM customer c 
+  	<include refid="customer_where"/>
+  </select>
+  
+  <select id="selectByPrimaryKey" resultType="customer" parameterType="int" >
+    select 
+   cust_id, 
+    cust_name, 
+    cust_user_id,
+    cust_create_id,
+     cust_source,
+    cust_industry,
+    cust_level, 
+    cust_linkman,
+     cust_phone, 
+     cust_mobile,
+     cust_zipcode,
+     cust_address,
+     cust_createtime
+    from customer c
+    where cust_id = #{custId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="int" >
+    delete from customer 
+    where cust_id = #{custId,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.peng.crm.pojo.Customer" >
+    insert into customer 
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cust_id != null" >
+        cust_id,
+      </if>
+      <if test="cust_name != null" >
+        cust_name,
+      </if>
+      <if test="cust_user_id != null" >
+        cust_user_id,
+      </if>
+      <if test="cust_create_id != null" >
+        cust_create_id,
+      </if>
+      <if test="cust_source != null" >
+        cust_source,
+      </if>
+      <if test="cust_industry != null" >
+        cust_industry,
+      </if>
+      <if test="cust_level != null" >
+        cust_level,
+      </if>
+      <if test="cust_linkman != null" >
+        cust_linkman,
+      </if>
+      <if test="cust_phone != null" >
+        cust_phone,
+      </if>
+      <if test="cust_mobile != null" >
+        cust_mobile,
+      </if>
+      <if test="cust_zipcode != null" >
+        cust_zipcode,
+      </if>
+      <if test="cust_address != null" >
+        cust_address,
+      </if>
+      <if test="cust_createtime != null" >
+        cust_createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cust_id != null" >
+        #{cust_id,jdbcType=BIGINT},
+      </if>
+      <if test="cust_name != null" >
+        #{cust_name,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_userId != null" >
+        #{cust_userId,jdbcType=BIGINT},
+      </if>
+      <if test="cust_createId != null" >
+        #{cust_createId,jdbcType=BIGINT},
+      </if>
+      <if test="cust_source != null" >
+        #{cust_source,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_industry != null" >
+        #{cust_industry,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_level != null" >
+        #{cust_level,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_linkman != null" >
+        #{cust_linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_phone != null" >
+        #{cust_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_mobile != null" >
+        #{cust_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_zipcode != null" >
+        #{cust_zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_address != null" >
+        #{cust_address,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_createtime != null" >
+        #{cust_createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  <update id="updateByPrimaryKeySelective" parameterType="com.peng.crm.pojo.Customer" >
+    update customer  
+    <set >
+      <if test="cust_name != null" >
+        cust_name = #{cust_name,jdbcType=VARCHAR},
+      </if>
+      <!-- <if test="cust_user_id != null" >
+        cust_user_id = #{cust_user_id,jdbcType=BIGINT},
+      </if>
+      <if test="cust_create_id != null" >
+        cust_create_id = #{cust_create_id,jdbcType=BIGINT},
+      </if>
+      <if test="cust_source != null" >
+        cust_source = #{cust_source,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_industry != null" >
+        cust_industry = #{cust_industry,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_level != null" >
+        cust_level = #{cust_level,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_linkman != null" >
+        cust_linkman = #{cust_linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_phone != null" >
+        cust_phone = #{cust_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_mobile != null" >
+        cust_mobile = #{cust_mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_zipcode != null" >
+        cust_zipcode = #{cust_zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_address != null" >
+        cust_address = #{cust_address,jdbcType=VARCHAR},
+      </if>
+      <if test="cust_createtime != null" >
+        cust_createtime = #{cust_createtime,jdbcType=TIMESTAMP},
+      </if> -->
+    </set>
+    where cust_id = #{cust_id,jdbcType=BIGINT}
+  </update>
+</mapper>

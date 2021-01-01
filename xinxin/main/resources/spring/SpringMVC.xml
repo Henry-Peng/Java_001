@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 加载在controller使用的配置文件 -->
+	<context:property-placeholder location="classpath:crm.properties"/>
+	
+	<!-- 配置@controller控制器:包扫描 -->
+	<context:component-scan base-package="com.peng.crm.controller"></context:component-scan>
+
+	<!-- 配置处理器的映射器 ,已经自动配置,不需要再手动重新配置,会报错;除非一起配置上适配器-->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean> -->
+	
+	<!-- 配置处理器的适配器 --><!-- 处理器的映射器和适配器需要一起使用 -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean> -->
+	
+	<!-- 配置注解驱动,相当于同时使用最新的处理器的映射器和适配器,springmvc必要需求 -->
+	<!-- <mvc:annotation-driven /> -->
+	<mvc:annotation-driven conversion-service="myConvert"/><!-- 使用自定义的转换器 -->
+	
+	<!-- 定义日期转换器 -->
+	<bean id="myConvert" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<bean class="com.peng.crm.utils.DateConvert"></bean>
+		</property>
+	</bean>
+	
+	<!-- 配置视图解析器,前缀和后缀 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<!-- 配置视图响应的前缀 -->
+		<property name="prefix" value="/WEB-INF/jsp/"></property>
+		<!-- 配置视图响应的后缀 -->
+		<property name="suffix" value=".jsp"></property>
+		
+	</bean>
+	
+	<!-- 配置全局异常处理器 -->
+	<!-- 出现异常时,系统会寻找是否有异常处理器,如果有,按照异常处理器来执行 -->
+	<!-- <bean class="com.peng.springmvc.exception.GlobalExceptionResolver"></bean> -->
+	
+	<!-- 配置多媒体解析器,此处用于上传图片 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 限制,最大上传的文件大小 --><!-- 8M=8*1024*1024,value单位为B,字节 -->
+		<property name="maxUploadSize" value="8388608"></property>
+	</bean>
+	
+	<!-- 配置拦截器 ,拦截器可以重复配置-->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			/** :拦截所有的请求,包括二级目录以上,二级目录是指一级目录的子目录
+			<mvc:mapping path="/**"/>
+			
+			配置不拦截目录
+			<mvc:exclude-mapping path="/user/**"/>
+			<bean class="com.peng.springmvc.interceptor.MyInterceptor"/>
+			<bean class="com.peng.springmvc.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+
+	
+	
+	
+	<!-- application/x-www-form-urlencoded 空格转换为 "+" 加号，特殊符号转换为 ASCII HEX 值 
+		multipart/form-data 不对字符进行编码，使用二进制数据传输，一般用于上传文件，非文本的数据传输。 spring mvc如果要接收 
+		multipart/form-data 传输的数据，应该在spring上下文配置 -->
+
+	<!-- <bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean> -->
+	<!-- 这样服务端就既可以接收multipart/form-data 传输的数据，也可以接收application/x-www-form-urlencoded传输的文本数据了。 -->
+	
+	
+</beans>
